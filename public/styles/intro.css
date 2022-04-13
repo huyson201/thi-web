@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: url('../images/background.jpeg') no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+.wrapper .light {
+    position: absolute;
+    bottom: -100%;
+    mix-blend-mode: overlay;
+    animation: moveY infinite linear;
+}
+
+.wrapper .light::after {
+    content: "";
+    background-color: #ffc400;
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    animation: moveX infinite alternate ease-in-out;
+}
+
+.wrapper .light:nth-child(1) {
+    left: -50px;
+    width: 400px;
+    height: 400px;
+    animation-delay: 0s;
+    animation-duration: 6s;
+}
+
+.wrapper .light:nth-child(2) {
+    left: 300px;
+    width: 350px;
+    height: 350px;
+    animation-delay: 3s;
+    animation-duration: 5s;
+}
+
+.wrapper .light:nth-child(3) {
+    left: 700px;
+    width: 500px;
+    height: 500px;
+    animation-delay: 1.5s;
+    animation-duration: 4s;
+}
+
+.wrapper .light:nth-child(4) {
+    left: 900px;
+    width: 400px;
+    height: 400px;
+    animation-delay: 2.5s;
+    animation-duration: 9s;
+}
+
+.wrapper .light:nth-child(1)::after {
+    animation-delay: 0s;
+    animation-duration: 1.5s;
+}
+
+.wrapper .light:nth-child(2)::after {
+    animation-delay: 2s;
+    animation-duration: 2s;
+}
+
+.wrapper .light:nth-child(3)::after {
+    animation-delay: 1s;
+    animation-duration: 3.5s;
+}
+
+.wrapper .light:nth-child(4)::after {
+    animation-delay: 2.5s;
+    animation-duration: 1.5s;
+}
+
+@keyframes moveY {
+    from {
+        bottom: -100%;
+    }
+
+    to {
+        bottom: 100%;
+    }
+}
+
+@keyframes moveX {
+    from {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+
+.wrapper .logo-holder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 350px;
+    transform: translate(-50%, -50%);
+    perspective: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.logo-holder .logo {
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .7);
+    box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, .6),
+        0px 0px 6px 6px rgba(255, 255, 255, .6),
+        0px 0px 12px 8px rgba(255, 255, 255, .6);
+    border-radius: 20px;
+    transition: all .7s;
+
+}
+
+.logo-holder .logo img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.logo-holder .logo img.back {
+    transform: translateZ(50px) scale(.95);
+}
+
+.logo-holder .logo img.front {
+    transform: translateZ(100px) scale(.85);
+}
+
+.logo-holder .logo img.text {
+    transform: translateZ(150px) translateY(25px) scale(.8);
+}
+
+.logo-holder .hover-side {
+    z-index: 99;
+}
+
+.logo-holder .hover-side:nth-child(1):hover~.logo {
+    transform: rotateX(-25deg) rotateY(25deg);
+}
+
+.logo-holder .hover-side:nth-child(2):hover~.logo {
+    transform: rotateX(-25deg);
+}
+
+.logo-holder .hover-side:nth-child(3):hover~.logo {
+    transform: rotateX(-25deg) rotateY(-25deg);
+}
+
+.logo-holder .hover-side:nth-child(4):hover~.logo {
+    transform: rotateY(25deg);
+}
+
+.logo-holder .hover-side:nth-child(6):hover~.logo {
+    transform: rotateY(-25deg);
+}
+
+.logo-holder .hover-side:nth-child(7):hover~.logo {
+    transform: rotateX(25deg) rotateY(25deg);
+}
+
+.logo-holder .hover-side:nth-child(8):hover~.logo {
+    transform: rotateX(25deg);
+}
+
+.logo-holder .hover-side:nth-child(9):hover~.logo {
+    transform: rotateX(25deg) rotateY(-25deg);
+}
